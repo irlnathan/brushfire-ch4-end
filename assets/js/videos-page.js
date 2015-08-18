@@ -139,25 +139,6 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
         $scope.$apply();
 
       });
-
-      io.socket.on('video', function whenAVideoIsCreatedUpdatedOrDestroyed(event) {
-
-        console.log('event: ', event);
-
-        // Add the new video to the DOM
-        $scope.videos.unshift({
-          title: event.data.title,
-          src: event.data.src,
-
-        });
-
-        // Apply the changes to the DOM
-        // (we have to do this since `io.socket.get` is not a
-        // angular-specific magical promisy-thing)
-        $scope.$apply();
-      });
-
-
     };
 
   }
